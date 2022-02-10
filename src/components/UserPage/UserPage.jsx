@@ -1,6 +1,7 @@
 import React from 'react';
-import EstimatePage from '../EstimatePage/EstimatePage';
+import EstimateForm from '../EstimateForm/EstimateForm';
 import {useSelector} from 'react-redux';
+import { Link } from "react-router-dom";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -17,11 +18,11 @@ function UserPage() {
       </p>
       </div>
       <div className="grid-col grid-col_4">
-      <EstimatePage />
+      <EstimateForm />
 
-        {/* <center>
-          <Link to="/PreviewPage"><button className='btn'>NEXT</button></Link>
-          </center> */}
+        <center>
+          <Link to="/preview"><button className='btn'>NEXT</button></Link>
+        </center>
         </div>
         </div>
     </div>

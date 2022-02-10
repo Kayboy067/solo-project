@@ -37,21 +37,23 @@ setOptions(Object.keys(info));
 convert();
 }, [info])
 
-dispatch({
-type: 'SET_INPUT_OUTPUT', 
-payload: {
-    info: info,
-    input: input, 
-    from: from,
-    to: to,
-    options: options,
-    output: output}
-})
+
 
 // Function to convert the currency
 function convert() {
 let rate = info[to];
 setOutput(input * rate);
+
+dispatch({
+    type: 'SET_INPUT_OUTPUT', 
+    payload: {
+        info: info,
+        input: input, 
+        from: from,
+        to: to,
+        options: options,
+        output: output}
+    })
 }
 // function to calculate the sending fee
 // sending fee is pegged to $5
@@ -106,6 +108,7 @@ value={to} placeholder="To" />
 
 
 </div>
+
 
 
 );
