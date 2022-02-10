@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EstimatePage from '../EstimatePage/EstimatePage';
+import PreviewPage from '../PreviewPage/PreviewPage';
 
 import './App.css';
 
@@ -69,6 +70,18 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/estimate">
+              <EstimatePage />
+            </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/preview">
+              <PreviewPage />
+          </ProtectedRoute>
+
           <Route
             exact
             path="/login"
@@ -110,12 +123,6 @@ function App() {
               <LandingPage />
             }
           </Route>
-
-          <Route
-            exact
-            path="/estimate">
-              <EstimatePage />
-            </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

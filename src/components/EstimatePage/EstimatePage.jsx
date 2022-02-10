@@ -11,7 +11,7 @@ function EstimatePage() {
         <EstimateForm />
   
         <center>
-            <Link to="/PreviewPage"><button className='btn'>NEXT</button></Link>
+            <Link to="/preview"><button className='btn'>NEXT</button></Link>
         </center>       
       </div>
     );
