@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EstimatePage from '../EstimatePage/EstimatePage';
 import PreviewPage from '../PreviewPage/PreviewPage';
+import Receiver from '../ReceiverPage/ReceiverPage'
 
 import './App.css';
 
@@ -80,6 +81,12 @@ function App() {
             exact
             path="/preview">
               <PreviewPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/receiver">
+              <Receiver />
           </ProtectedRoute>
 
           <Route
