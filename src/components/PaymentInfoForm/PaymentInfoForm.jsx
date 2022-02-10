@@ -34,14 +34,19 @@ function PaymentInfoForm() {
         <div>
         <label htmlFor='cardType'>
             Card Type:
-        <input
+        {/* <input
             type="text"
             name="cardType"
             value={cardType}
             required
             placeholder="Card Type"
             onChange={(event) => setCardType(event.target.value)}
-        />
+        /> */}
+        <select defaultValue="cardType">
+            <option value="cardType">Card Type</option>
+            <option>Credit Card</option>
+            <option>Debit Card</option>
+        </select>
         </label>
         </div>   
         <div>
