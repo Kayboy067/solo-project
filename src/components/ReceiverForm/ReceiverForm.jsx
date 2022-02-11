@@ -28,6 +28,7 @@ function ReceiverForm() {
         })
     }
 
+    console.log('firstName', firstName);
     return(
         <form onSubmit={createReceiverInfo}>
         <div>
@@ -94,6 +95,7 @@ function ReceiverForm() {
             onChange={(event) => setPhoneNumber(event.target.value)}
         />
         </label>
+        <input type="submit" name="create" value="create" />
         </div> 
         </form>
 

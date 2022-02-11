@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 //import { useHistory } from 'react-router-dom';
 
-function EstimateForm() {
+function EstimateForm(){
 
 
 // Initializing all the state variables
@@ -19,6 +19,7 @@ const [options, setOptions] = useState([]);
 const [output, setOutput] = useState(0);
 const dispatch = useDispatch();
 
+
 // Calling the api whenever the dependency changes
 useEffect(() => {
 axios({
@@ -27,6 +28,7 @@ axios({
 })
 .then((res) => {
 setInfo(res.data[from]);
+console.log('nnnnnnnnnninfo', info);
 })
 }, [from]);
 
@@ -37,23 +39,24 @@ setOptions(Object.keys(info));
 convert();
 }, [info])
 
-
+console.log('kdkdkdkdkdkdkdkdkdkdkdkdkkdkd', output);
 
 // Function to convert the currency
 function convert() {
 let rate = info[to];
 setOutput(input * rate);
+console.log('this is output', output);
 
-dispatch({
-    type: 'SET_INPUT_OUTPUT', 
-    payload: {
-        info: info,
-        input: input, 
-        from: from,
-        to: to,
-        options: options,
-        output: output}
-    })
+// dispatch({
+//     type: 'SET_INPUT_OUTPUT', 
+//     payload: {
+//         info: info,
+//         input: input, 
+//         from: from,
+//         to: to,
+//         options: options,
+//         output: output}
+//     })
 }
 // function to calculate the sending fee
 // sending fee is pegged to $5
