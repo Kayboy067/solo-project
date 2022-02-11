@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
         })
         .then((apiRes) => {
             res.send(apiRes.data);
+            console.log('apiRes.data', apiRes.data);
             })
             .catch((err) => {
                 console.error('Currency req failed', err);
