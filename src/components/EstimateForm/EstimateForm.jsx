@@ -56,11 +56,13 @@ console.log('this is output', output);
 //     })
 
 
+
     dispatch({
         type: 'SAVE_INPUT_OUTPUT',
         payload: {
             input: Number(input),
-            output: Number((input * rate).toFixed(2))
+            output: Number((input * rate).toFixed(2)),
+            sendFee: sendingFee()
         }
     })
 }

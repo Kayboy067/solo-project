@@ -31,8 +31,9 @@ console.log('this is the receiving', receiving);
         <div className="preview" className="formPanel">
             <h2> Payment Preview</h2>
 
-            <h4> Amount in $: {inputOutput.input}</h4>
-            <h4> Amount in N: {inputOutput.output}</h4>
+            <h4> To send: ${inputOutput.input}</h4>
+            <h4> To receive: N{inputOutput.output}</h4>
+            <h4> Sending fee: ${inputOutput.sendFee}</h4>
             
             {/* <h4>Sending Fee: ${inputOutput.sendingFee}</h4> */}
 
