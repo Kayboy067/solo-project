@@ -1,10 +1,18 @@
 import React, {useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+
 
 function PreviewForm () {
  
+const inputOutput = useSelector(store => store.inputOutputReducer)
+console.log('this is the inputOutput store', inputOutput);
+
 
 const [payment, setPayment] = useState('credit card');
 const [receiving, setReceiving] = useState('cash pickup');
+
+
 
 const handleChange = (event) => {
     setPayment(event.target.value)
@@ -23,8 +31,10 @@ console.log('this is the receiving', receiving);
         <div className="preview" className="formPanel">
             <h2> Payment Preview</h2>
 
-
-    
+            <h4> Amount in $: {inputOutput.input}</h4>
+            <h4> Amount in N: {inputOutput.output}</h4>
+            
+            {/* <h4>Sending Fee: ${inputOutput.sendingFee}</h4> */}
 
             <div>
                 <input onChange={handleChange} type="radio" value="credit card" name="payment" checked={payment === 'credit card'}/> CreditCard

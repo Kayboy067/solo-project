@@ -2,6 +2,8 @@ import React from 'react';
 import {useSelector} from 'react-redux';
 import PreviewForm from '../PreviewForm/PreviewForm';
 import { Link } from "react-router-dom";
+import EstimateForm from '../EstimateForm/EstimateForm'
+
 
 function PreviewPage (){
     const user = useSelector((store) => store.user);
@@ -11,6 +13,7 @@ function PreviewPage (){
         <p>Send money online for what matters most. </p>
         <p>We make international money transfers easier than ever. Choose how and when you send, with great exchange rates and low fees.</p>
 
+        {/* <EstimateForm /> */}
         <PreviewForm />
         <center>
         <Link to="/receiver"><button className='btn'>continue</button></Link>

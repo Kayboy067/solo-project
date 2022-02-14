@@ -14,6 +14,9 @@ function InfoPage() {
 
   const receivers = useSelector(store=>store.receiverReducer[0])
   const dispatch = useDispatch();
+  const inputOutput = useSelector(store => store.inputOutputReducer)
+  console.log('this is from the store', inputOutput);
+
 
   useEffect(() => {
     dispatch({type: 'FETCH_RECEIVER'})

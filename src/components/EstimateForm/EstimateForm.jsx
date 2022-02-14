@@ -8,8 +8,6 @@ import {useDispatch} from 'react-redux';
 //import { useHistory } from 'react-router-dom';
 
 function EstimateForm(){
-
-
 // Initializing all the state variables
 const [info, setInfo] = useState([]);
 const [input, setInput] = useState(0);
@@ -34,18 +32,17 @@ console.log('nnnnnnnnnninfo', info);
 
 // Calling the convert function whenever
 // a user switches the currency
-useEffect(() => {
-setOptions(Object.keys(info));
-convert();
-}, [info])
-
-console.log('kdkdkdkdkdkdkdkdkdkdkdkdkkdkd', output);
+// useEffect(() => {
+// setOptions(Object.keys(info));
+// convert();
+// }, [info])
 
 // Function to convert the currency
 function convert() {
 let rate = info[to];
-setOutput(input * rate);
+setOutput(Number(input) * rate);
 console.log('this is output', output);
+
 
 // dispatch({
 //     type: 'SET_INPUT_OUTPUT', 
@@ -57,6 +54,15 @@ console.log('this is output', output);
 //         options: options,
 //         output: output}
 //     })
+
+
+    dispatch({
+        type: 'SAVE_INPUT_OUTPUT',
+        payload: {
+            input: Number(input),
+            output: Number((input * rate).toFixed(2))
+        }
+    })
 }
 // function to calculate the sending fee
 // sending fee is pegged to $5
@@ -73,6 +79,10 @@ let temp = from;
 setFrom(to);
 setTo(temp);
 }
+
+
+console.log('this is the input', Number(input));
+console.log('this is the output', output);
 
 return (
 
@@ -103,6 +113,7 @@ value={to} placeholder="To" />
 </div>
 </div>
 <div className="result">
+
 <button onClick={()=>{convert()}}>Continue</button>
 <h2>Converted Amount:</h2>
 <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p>
