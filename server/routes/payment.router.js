@@ -14,50 +14,44 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   res.send(req.user);
 });
 
-
-// POST a new receiver to that receiver table
-router.post('/receiver', (req, res, next) => {
+//POST a new payment
+router.post('/payment', (req, res, next) =>{
 
     const sqlText = `
-        INSERT INTO "receiver"
-        ("first_name", "middle_name", "last_name", "address", 
-        "phone_no", "user_id")
-        VALUES
-            ($1, $2, $3, $4, $5, $6)
-    `
+        INSERT INTO "payment"
+        ("user_id", "card_name", "card_number", "card_type", "address", "expiration", "cvv")
+        VALUES ($1, $2, $3, $4, $5, $6, $7)`
 
     const sqlParam = [
-        req.body.firstName,
-        req.body.middleName,
-        req.body.lastName,
+        req.user.id,
+        req.body.cardName,
+        req.body.cardNumber,
+        req.body.cardType,
         req.body.address,
-        Number(req.body.phoneNumber),
-        req.body.userId
+        req.body.expiration,
+        req.body.cvv
     ]
 
     pool.query(sqlText, sqlParam)
         .then(() => res.sendStatus(201))
-        .catch( (err) => {
-            console.log('Create receiver info failed', err);
+        .catch((err) =>{
+            console.log('Create payment failed', err);
             res.sendStatus(500);
         })
 })
 
-// GET all the receiver belonging to this user
-router.get('/receiver', (req, res) => {
+// GET all the payment belonging to this user
+router.get('/receiver', (req, res) =>{
     const sqlText = `
-        SELECT *
-        FROM "receiver"
-    `
+        SELECT * FROM "payment"`
     pool.query(sqlText)
-        .then( result => {
+        .then(result =>{
             res.send(result.rows)
         })
-        .catch(err => {
+        .catch(err =>{
             console.log('Error fetching receiver', err);
             res.sendStatus(500);
         })
 })
-
 
 module.exports = router

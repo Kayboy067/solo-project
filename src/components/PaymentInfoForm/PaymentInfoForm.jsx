@@ -10,7 +10,7 @@ function PaymentInfoForm() {
         cardNumber: '',
         cvv: '',
         billingAddress: '',
-        expireDate: '',
+        expiration: '',
     });
 
     const createPaymentInfo = (event) => {
@@ -100,15 +100,15 @@ function PaymentInfoForm() {
         </label>
         </div> 
         <div>
-        <label htmlFor='expireDate'>
-            Expiration Date:
+        <label htmlFor='expiration'>
+            Expiration:
         <input
-            type="date"
-            name="expireDate"
-            value={paymentInfo.expireDate}
+            type="text"
+            name="expiration"
+            value={paymentInfo.expiration}
             required
-            placeholder="expireDate"
-            onChange={(evt) => handleChange(evt, "expireDate")}
+            placeholder="expiration"
+            onChange={(evt) => handleChange(evt, "expiration")}
         />
         </label>
         </div> 
