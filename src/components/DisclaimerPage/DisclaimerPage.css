@@ -1,0 +1,39 @@
+.white-container-summary{
+    background-color: white;
+    width: 80% !important;
+    margin-top: 30px;
+    height: auto;
+    padding: 5px;
+    text-align: start;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.fraud-header{
+    text-align: center;
+    font-size: 28px;
+    margin: 20px !important;
+}
+
+.fraud-text{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.almost-done-header{
+    font-size: 17px;
+    margin: 1px !important;
+}
+
+.fraud-btn-container{
+    text-align: right;
+
+}
+.fraud-btn{
+    font-size: 28px !important;
+    color: #6D6D6D !important;
+    background-color: #C4C4C4 !important;
+    font-weight: 600 !important;
+    padding: 4px 20px !important;
+    text-transform: capitalize !important;   
+}
