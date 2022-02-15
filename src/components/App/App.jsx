@@ -22,7 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import EstimatePage from '../EstimatePage/EstimatePage';
 import PreviewPage from '../PreviewPage/PreviewPage';
 import Receiver from '../ReceiverPage/ReceiverPage';
-import PaymentInfoPage from '../PaymentInfoPage/PaymentInfoPage'
+import PaymentInfoPage from '../PaymentInfoPage/PaymentInfoPage';
+import DisclaimerPage from '../DisclaimerPage/DisclaimerPage'
 
 import './App.css';
 
@@ -94,6 +95,12 @@ function App() {
             exact
             path="/payment">
               <PaymentInfoPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/disclaimer">
+              <DisclaimerPage />
           </ProtectedRoute>
 
           <Route
