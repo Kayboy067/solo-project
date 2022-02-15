@@ -11,8 +11,19 @@ function* creatPaymentInfo(action) {
     }
 } // end
 
+function* fetchPayment(){
+    try {
+        const payment = yield axios.get('api/user/payment')
+        yield put({type: 'SET_PAYMENT', payload: payment.data})
+    } catch (error){
+        console.log('Error fetching payment', error);
+    }
+
+} // end
+
 function* paymentSaga() {
     yield takeEvery('CREATE_PAYMENT_INFO', creatPaymentInfo)
+    yield takeEvery('FETCH_PAYMENT', fetchPayment)
 }
 
 export default paymentSaga
