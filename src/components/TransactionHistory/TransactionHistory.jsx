@@ -10,7 +10,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 
-function InfoPage() {
+function TransactionHistory() {
 
   const receivers = useSelector(store=>store.receiverReducer[0])
   const dispatch = useDispatch();
@@ -33,4 +33,4 @@ console.log('this are the receivers from the store', receivers);
   );
 }
 
-export default InfoPage;
+export default TransactionHistory;
