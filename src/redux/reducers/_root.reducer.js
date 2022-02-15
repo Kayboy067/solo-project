@@ -4,6 +4,7 @@ import user from './user.reducer';
 import receiverReducer from './receiver.reducer';
 import estimateReducer from './estimate.reducer'
 import inputOutputReducer from './inputOutputReducer';
+import paymentReducer from './payment.reducer'
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   receiverReducer,
   estimateReducer,
-  inputOutputReducer
+  inputOutputReducer,
+  paymentReducer
 });
 
 export default rootReducer;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 function PaymentInfoForm() {
     const dispatch = useDispatch();
+    //const payment = useSelector(store => store.paymentReducer)
 
     const [paymentInfo, setPaymentInfo] = useState({
         cardType: '',
@@ -28,8 +29,8 @@ function PaymentInfoForm() {
     
     return(
         <>
-         <form onSubmit={createPaymentInfo} className="formPanel">
-        <div>
+         <form onSubmit={createPaymentInfo}>
+        <span>
         <label htmlFor='cardType'>
             Card Type:
         <input
@@ -46,8 +47,8 @@ function PaymentInfoForm() {
             <option>Debit Card</option>
         </select> */}
         </label>
-        </div>   
-        <div>
+        </span>   
+        <span>
         <label htmlFor='cardName'>
             Card Name:
         <input
@@ -59,8 +60,8 @@ function PaymentInfoForm() {
             onChange={(evt) => handleChange(evt, "cardName")}
         />
         </label>
-        </div> 
-        <div>
+        </span> 
+        <span>
         <label htmlFor='cardNumber'>
             Card Number:
         <input
@@ -72,8 +73,8 @@ function PaymentInfoForm() {
             onChange={(evt) => handleChange(evt, "cardNumber")}
         />
         </label>
-        </div> 
-        <div>
+        </span> 
+        <span>
         <label htmlFor='cvv'>
             CVV:
         <input
@@ -85,8 +86,8 @@ function PaymentInfoForm() {
             onChange={(evt) => handleChange(evt, "cvv")}
         />
         </label>
-        </div> 
-        <div>
+        </span> 
+        <span>
         <label htmlFor='billingAddress'>
             Billing Address:
         <input
@@ -98,8 +99,8 @@ function PaymentInfoForm() {
             onChange={(evt) => handleChange(evt, "billingAddress")}
         />
         </label>
-        </div> 
-        <div>
+        </span> 
+        <span>
         <label htmlFor='expiration'>
             Expiration:
         <input
@@ -111,8 +112,11 @@ function PaymentInfoForm() {
             onChange={(evt) => handleChange(evt, "expiration")}
         />
         </label>
-        </div> 
-        <button>Update</button>
+        </span> 
+        <button type='submit' >
+            Update
+
+        </button>
         </form>
         
         </>

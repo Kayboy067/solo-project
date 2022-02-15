@@ -25,11 +25,11 @@ router.post('/payment', (req, res, next) =>{
     const sqlParam = [
         req.user.id,
         req.body.cardName,
-        req.body.cardNumber,
+        encryptLib.encryptPassword(req.body.cardNumber),
         req.body.cardType,
-        req.body.address,
+        req.body.billingAddress,
         req.body.expiration,
-        req.body.cvv
+        encryptLib.encryptPassword(req.body.cvv)
     ]
 
     pool.query(sqlText, sqlParam)
@@ -41,7 +41,7 @@ router.post('/payment', (req, res, next) =>{
 })
 
 // GET all the payment belonging to this user
-router.get('/receiver', (req, res) =>{
+router.get('/payment', (req, res) =>{
     const sqlText = `
         SELECT * FROM "payment"`
     pool.query(sqlText)
@@ -49,7 +49,7 @@ router.get('/receiver', (req, res) =>{
             res.send(result.rows)
         })
         .catch(err =>{
-            console.log('Error fetching receiver', err);
+            console.log('Error fetching payment', err);
             res.sendStatus(500);
         })
 })

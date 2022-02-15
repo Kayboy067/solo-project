@@ -38,11 +38,13 @@ console.log('this is the receiving', receiving);
             {/* <h4>Sending Fee: ${inputOutput.sendingFee}</h4> */}
 
             <div>
+                <h4>Payment Method</h4>
                 <input onChange={handleChange} type="radio" value="credit card" name="payment" checked={payment === 'credit card'}/> CreditCard
                 <input onChange={handleChange} type="radio" value="debit card" name="payment" checked={payment === 'debit card'}/> DebitCard
             </div>
 
             <div>
+                <h4>Pickup Method</h4>
                 <input onChange={submitChange} type="radio" value="cash pickup" name="receiving" checked={receiving === 'cash pickup'}/> Cash Pickup
                 <input onChange={submitChange} type="radio" value="bank remittance" name="receiving" checked={receiving === 'bank remittance'}/> Bank Remittance
             </div>
