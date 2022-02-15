@@ -12,6 +12,7 @@ const userRouter = require('./routes/user.router');
 const currencyRouter = require('./routes/currency.router');
 const receiverRouter = require('./routes/receiver.router');
 const paymentRouter = require('./routes/payment.router');
+const transactionRouter = require('./routes/transaction.router')
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -29,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/currency', currencyRouter);
 app.use('/api/user', receiverRouter);
 app.use('/api/user', paymentRouter)
+app.use('/api/user', transactionRouter)
 
 // Serve static files
 app.use(express.static('build'));
