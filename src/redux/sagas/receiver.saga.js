@@ -8,7 +8,9 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 function* createReceiverInfo(action){
     try {
-        yield axios.post('api/user/receiver', action.payload)
+        const response = yield axios.post('api/user/receiver', action.payload)
+        yield put({ type: 'SET_ACTIVE_RECEIVER', payload: response.data})
+
 
     } catch (error) {
         console.log('Error posting receiver info', error);

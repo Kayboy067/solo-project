@@ -34,14 +34,8 @@ console.log('this is the payment option from redux', paymentOption);
       <h3>{transaction.amount}</h3>
       <h3>{transaction.convertedAmount}</h3>
       <h3>{transaction.rate}</h3>
+      <h3>{transaction.country}</h3>
       <h3>{receivers.id}</h3>
-      <h3></h3>
-      <h3></h3>
-      <h3></h3>
-      <h3></h3>
-      <h3></h3>
-      <h3></h3>
-      <h3></h3>
     </div>
   );
 }
