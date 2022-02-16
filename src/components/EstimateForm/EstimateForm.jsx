@@ -17,6 +17,7 @@ const [to, setTo] = useState('ngn');
 const [options, setOptions] = useState([]);
 const [output, setOutput] = useState(0);
 const [country, setCountry] = useState('Nigeria');
+const [date, setDate] = useState('')
 const dispatch = useDispatch();
 
 
@@ -60,7 +61,8 @@ console.log('this is output', output);
             convertedAmount: Number((input * rate).toFixed(2)),
             sendFee: sendFee,
             rate: rate,
-            country: country
+            country: country,
+            date: date
         }
     })
 }
@@ -124,13 +126,17 @@ value={to} placeholder="To" />
 </div>
 </div>
 <div className="result">
-
+<label htmlFor="date">
+    Date:
+</label>
+<input type="date" name="date" required value={date}
+    onChange={(evt) => setDate(evt.target.value)} />
 <button onClick={()=>{convert()}}>Continue</button>
 <h2>Converted Amount:</h2>
 <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p>
 </div>
 <h4>Sending Fee: ${sendingFee()}</h4>
-<p className='money-note'>Money Available by: {moment().format('MMMM Do YYYY')} </p>
+<p className='money-note'>Money Available by: {date} </p>
 
 
 </div>

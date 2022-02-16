@@ -48,7 +48,7 @@ console.log('this is the receiving', receiving);
 
             <h4> To send: ${transaction.amount}</h4>
             <h4> To receive: N{transaction.convertedAmount}</h4>
-            <h4> Sending fee: ${transaction.sendingFee}</h4>
+            <h4> Sending fee: ${transaction.sendFee}</h4>
             
             {/* <h4>Sending Fee: ${inputOutput.sendingFee}</h4> */}
 
