@@ -2,10 +2,7 @@ const transactionReducer = (state = {
     amount: '',
     rate: '',
     convertedAmount: '',
-    sendingFee: '',
     date: '',
-    userId: '',
-    receiverId: '',
     country: ''
 }, action) => {
     switch(action.type) {
