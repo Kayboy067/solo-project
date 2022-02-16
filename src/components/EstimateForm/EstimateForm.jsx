@@ -5,6 +5,7 @@ import { HiSwitchHorizontal } from 'react-icons/hi';
 import 'react-dropdown/style.css';
 import { Link } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
+import moment from 'moment'
 //import { useHistory } from 'react-router-dom';
 
 function EstimateForm(){
@@ -15,6 +16,7 @@ const [from, setFrom] = useState("usd");
 const [to, setTo] = useState('ngn');
 const [options, setOptions] = useState([]);
 const [output, setOutput] = useState(0);
+const [country, setCountry] = useState('Nigeria');
 const dispatch = useDispatch();
 
 
@@ -37,6 +39,9 @@ console.log('nnnnnnnnnninfo', info);
 // convert();
 // }, [info])
 
+// setting the receiver country
+// let country = Nigeria
+
 // Function to convert the currency
 function convert() {
 let rate = info[to];
@@ -54,10 +59,15 @@ console.log('this is output', output);
             amount: Number(input),
             convertedAmount: Number((input * rate).toFixed(2)),
             sendFee: sendFee,
-            rate: rate
+            rate: rate,
+            country: country
         }
     })
 }
+
+    
+        
+    
 // function to calculate the sending fee
 // sending fee is pegged to $5
 const sendingFee = () => {
@@ -120,6 +130,7 @@ value={to} placeholder="To" />
 <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p>
 </div>
 <h4>Sending Fee: ${sendingFee()}</h4>
+<p className='money-note'>Money Available by: {moment().format('MMMM Do YYYY')} </p>
 
 
 </div>

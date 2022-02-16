@@ -15,17 +15,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 
+
 //POST a new payment
 router.post('/transaction', (req, res, next) =>{
     const sqlText = `
         INSERT INTO "transaction"
-            ("user_id", "receiver_fname", "receiver_lname", "phone_number", "country", "amount", "date", "rate")
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)` 
+            ("receiver_id", "converted_amount", "phone_number", "country", "amount", "date", "rate")
+            VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *` 
 
     const sqlParam = [
-        req.user.id,
-        req.body.receiverFirsName,
-        req.body.receiverLastName,
+        req.receiver.id,
+        req.body.convertedAmount,
         req.body.phoneNumber,
         req.body.country,
         req.body.amount,
@@ -34,9 +34,11 @@ router.post('/transaction', (req, res, next) =>{
 
     ]
     pool.query(sqlText, sqlParam)
-        .then(() => res.sendStatus(201))
-        .catch((err) =>{
-            console.log('Create transaction failed', err);
+        .then((result) => {
+            console.log('this is the result', result.rows[0]);
+            res.send(result.rows [0])})
+        .catch( (err) => {
+            console.log('Create receiver info failed', err);
             res.sendStatus(500);
         })
 
@@ -46,6 +48,7 @@ router.post('/transaction', (req, res, next) =>{
 router.get('/transaction', (req, res) =>{
     const sqlText = `
         SELECT * FROM "transaction"
+        JOIN "receiver"
     `
     pool.query(sqlText)
         .then(result =>{
