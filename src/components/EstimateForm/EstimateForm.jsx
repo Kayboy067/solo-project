@@ -44,25 +44,17 @@ setOutput(Number(input) * rate);
 console.log('this is output', output);
 
 
-// dispatch({
-//     type: 'SET_INPUT_OUTPUT', 
-//     payload: {
-//         info: info,
-//         input: input, 
-//         from: from,
-//         to: to,
-//         options: options,
-//         output: output}
-//     })
+
 
 
 
     dispatch({
-        type: 'SAVE_INPUT_OUTPUT',
+        type: 'SAVE_TRANSACTION_DATA',
         payload: {
-            input: Number(input),
-            output: Number((input * rate).toFixed(2)),
-            sendFee: sendingFee()
+            amount: Number(input),
+            convertedAmount: Number((input * rate).toFixed(2)),
+            sendFee: sendFee,
+            rate: rate
         }
     })
 }
@@ -75,6 +67,8 @@ return 5
 return input * 0.01
 }
 }
+
+const sendFee = sendingFee()
 // Function to switch between two currency
 function flip() {
 let temp = from;
@@ -85,6 +79,11 @@ setTo(temp);
 
 console.log('this is the input', Number(input));
 console.log('this is the output', output);
+//console.log('ready to send amount',amount );
+//console.log('ready to send conA', convertedAmount );
+//console.log('ready to send sendFee',sendFee );
+//console.log('ready to send rate', rate );
+
 
 return (
 

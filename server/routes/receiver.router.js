@@ -17,26 +17,25 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 // POST a new receiver to that receiver table
 router.post('/receiver', (req, res, next) => {
-
+    console.log('******** req.body', req.body);
     const sqlText = `
         INSERT INTO "receiver"
-        ("first_name", "middle_name", "last_name", "address", 
-        "phone_no", "user_id")
+        ("first_name", "last_name", "address", "phone_no")
         VALUES
-            ($1, $2, $3, $4, $5, $6)
+            ($1, $2, $3, $4) RETURNING * 
     `
 
     const sqlParam = [
         req.body.firstName,
-        req.body.middleName,
         req.body.lastName,
         req.body.address,
-        Number(req.body.phoneNumber),
-        req.body.userId
+        req.body.phoneNumber
     ]
 
     pool.query(sqlText, sqlParam)
-        .then(() => res.sendStatus(201))
+        .then((result) => {
+            console.log('this is the result', result.rows[0]);
+            res.send(result.rows [0])})
         .catch( (err) => {
             console.log('Create receiver info failed', err);
             res.sendStatus(500);

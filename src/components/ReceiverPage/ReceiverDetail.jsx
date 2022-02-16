@@ -30,7 +30,6 @@ function ReceiverDetail() {
             <TableHead>
             <TableRow>
                 <TableCell align="center">First Name</TableCell>
-                <TableCell align="center">Middle Name</TableCell>
                 <TableCell align="center">Last Name</TableCell>
                 <TableCell align="center">Address</TableCell>
                 <TableCell align="center">Phone Number</TableCell>
@@ -43,7 +42,6 @@ function ReceiverDetail() {
                 sx={ { border: 2, minWidth: 100 } }
                 >
                 <TableCell align="center">{receiverReducer.first_name}</TableCell>
-                <TableCell align="center">{receiverReducer.middle_name}</TableCell>
                 <TableCell align="center">{receiverReducer.last_name}</TableCell>
                 <TableCell align="center">{receiverReducer.address}</TableCell>
                 <TableCell align="center">{receiverReducer.phone_no}</TableCell>
