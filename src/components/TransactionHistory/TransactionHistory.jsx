@@ -14,21 +14,34 @@ function TransactionHistory() {
 
   const receivers = useSelector(store=>store.receiverReducer[0])
   const dispatch = useDispatch();
-  const inputOutput = useSelector(store => store.inputOutputReducer)
-  console.log('this is from the store', inputOutput);
+  const transaction = useSelector(store => store.transactionReducer)
+  const paymentOption = useSelector(store => store.paymentOptionReducer)
 
-
-  useEffect(() => {
-    dispatch({type: 'FETCH_RECEIVER'})
-  }, [])
+  // useEffect(() => {
+  //   dispatch({type: 'FETCH_RECEIVER'})
+  // }, [])
 
 console.log('this are the receivers from the store', receivers);
+console.log('transaction details from redux', transaction);
+console.log('this is the payment option from redux', paymentOption);
 
   return (
     <div className="container">
       <p>Info Page</p>
       <p> I want to know the details of my receiver</p>
       {/* <p>{receivers.first_name}</p> */}
+      <button> check transaction</button>
+      <h3>{transaction.amount}</h3>
+      <h3>{transaction.convertedAmount}</h3>
+      <h3>{transaction.rate}</h3>
+      <h3>{receivers.id}</h3>
+      <h3></h3>
+      <h3></h3>
+      <h3></h3>
+      <h3></h3>
+      <h3></h3>
+      <h3></h3>
+      <h3></h3>
     </div>
   );
 }

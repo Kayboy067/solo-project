@@ -5,7 +5,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 function* creatPaymentInfo(action) {
     try{
-        yield axios.post('api/user/payment', action.payload)
+        yield axios.post('api/user/payment', action.payload.id)
     } catch (error) {
         console.log('Error posting payment info', error);
     }

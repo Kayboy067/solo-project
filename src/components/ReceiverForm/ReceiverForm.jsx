@@ -7,7 +7,6 @@ function ReceiverForm() {
     const user=useSelector(store => store.user)
 
     const [firstName, setFirstName] = useState('');
-    const [middleName, setMiddleName] = useState('');
     const [lastName, setLastName] = useState('');
     const [address, setAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
@@ -19,7 +18,6 @@ function ReceiverForm() {
             type: 'CREATE_RECEIVER_INFO',
             payload: {
             firstName: firstName,
-            middleName: middleName,
             lastName: lastName,
             address: address,
             phoneNumber: phoneNumber,
@@ -44,7 +42,7 @@ function ReceiverForm() {
         />
         </label>
         </div>
-        <div>
+        {/* <div>
         <label htmlFor='middleName'>
             Middle Name (Optional):
         <input
@@ -56,7 +54,7 @@ function ReceiverForm() {
             onChange={(event) => setMiddleName(event.target.value)}
         />
         </label>
-        </div> 
+        </div>  */}
         <div>
         <label htmlFor='lastName'>
             Last Name:

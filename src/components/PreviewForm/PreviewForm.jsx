@@ -5,8 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 function PreviewForm () {
  
-const inputOutput = useSelector(store => store.inputOutputReducer)
-console.log('this is the inputOutput store', inputOutput);
+const transaction = useSelector(store => store.transactionReducer)
+console.log('this is the inputOutput store', transaction);
+const dispatch = useDispatch();
 
 
 const [payment, setPayment] = useState('credit card');
@@ -22,6 +23,20 @@ console.log('this is the payment', payment);
 const submitChange = (event) =>{
     setReceiving(event.target.value)
 };
+
+const submitPayment = () => {
+
+    dispatch  ({
+        type: 'PAYMENT_RECEIVING_METHOD',
+        payload: {
+            payment: payment,
+            receiving: receiving
+        }
+    })
+}
+
+
+
 console.log('this is the receiving', receiving);
 
 
@@ -31,9 +46,9 @@ console.log('this is the receiving', receiving);
         <div className="preview" className="formPanel">
             <h2> Payment Preview</h2>
 
-            <h4> To send: ${inputOutput.input}</h4>
-            <h4> To receive: N{inputOutput.output}</h4>
-            <h4> Sending fee: ${inputOutput.sendFee}</h4>
+            <h4> To send: ${transaction.amount}</h4>
+            <h4> To receive: N{transaction.convertedAmount}</h4>
+            <h4> Sending fee: ${transaction.sendingFee}</h4>
             
             {/* <h4>Sending Fee: ${inputOutput.sendingFee}</h4> */}
 
@@ -48,20 +63,8 @@ console.log('this is the receiving', receiving);
                 <input onChange={submitChange} type="radio" value="cash pickup" name="receiving" checked={receiving === 'cash pickup'}/> Cash Pickup
                 <input onChange={submitChange} type="radio" value="bank remittance" name="receiving" checked={receiving === 'bank remittance'}/> Bank Remittance
             </div>
-
-            {/* <div onChange={setRadio.bind(this)}>
-                <h3>Pickup Method:</h3>
-                <input  type="radio" 
-                        value="Cash Pickup" 
-                        name="receiving" 
-                        defaultChecked={radio ==="Cash"} 
-                        /> Cash Pickup
-                <input  type="radio" 
-                        value="Bank Remittance" 
-                        name="receiving" 
-                        defaultChecked={radio ==="Bank"} 
-                        /> Bank Remittance
-            </div> */}
+          
+            <button onClick={submitPayment}>submit</button>
         </div>
     )
 }
