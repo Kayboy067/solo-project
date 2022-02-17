@@ -25,6 +25,7 @@ import Receiver from '../ReceiverPage/ReceiverPage';
 import PaymentInfoPage from '../PaymentInfoPage/PaymentInfoPage';
 import DisclaimerPage from '../DisclaimerPage/DisclaimerPage';
 import SuccessPage from '../SuccessPage/SuccessPage'
+import Summary from '../Summary/Summary'
 
 import './App.css';
 
@@ -110,7 +111,12 @@ function App() {
               <SuccessPage />
           </ProtectedRoute>
 
-          
+          <ProtectedRoute
+            exact
+            path="/summary">
+              <Summary />
+          </ProtectedRoute>
+
 
           <Route
             exact

@@ -10,6 +10,7 @@ function* createReceiverInfo(action){
     try {
         const response = yield axios.post('api/user/receiver', action.payload)
         yield put({ type: 'SET_ACTIVE_RECEIVER', payload: response.data})
+        yield put({type: 'FETCH_RECEIVER'});
 
 
     } catch (error) {

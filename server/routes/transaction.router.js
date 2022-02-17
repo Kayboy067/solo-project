@@ -18,13 +18,16 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //POST a new payment
 router.post('/transaction', (req, res, next) =>{
+    console.log('this is req.body', req.body);
+    console.log('this is req.user', req.user.id);
     const sqlText = `
         INSERT INTO "transaction"
-            ("receiver_id", "converted_amount", "phone_number", "country", "amount", "date", "rate")
-            VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *` 
+            ("receiver_id", "user_id", "converted_amount", "phone_number", "country", "amount", "date", "rate")
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *` 
 
     const sqlParam = [
         req.receiver.id,
+        req.user.id,
         req.body.convertedAmount,
         req.body.phoneNumber,
         req.body.country,
@@ -49,6 +52,7 @@ router.get('/transaction', (req, res) =>{
     const sqlText = `
         SELECT * FROM "transaction"
         JOIN "receiver"
+        ON receiver.id = transaction.receiver_id
     `
     pool.query(sqlText)
         .then(result =>{

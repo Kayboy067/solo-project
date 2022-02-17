@@ -10,7 +10,7 @@ function DisclaimerPage(props) {
     let history = useHistory();
 
     function reviewAndSend() {
-        history.push('/Summary')
+        history.push('/summary')
     }
 
     return (
