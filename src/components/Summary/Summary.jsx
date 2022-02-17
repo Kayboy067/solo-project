@@ -74,7 +74,7 @@ function Summary(props) {
                 <h5 className='rates-fees'>Rate & Fees <span className='edit-btn'>
                     <button onClick={() => history.push('/')}>Edit</button></span> </h5>
                 <p className='conversion-rate'>{`${transaction.amount} USD = 
-        ${transaction.convertedAmount} Exchange Rate: ${transaction.rate} `}</p>
+        ${transaction.convertedAmount} NGN Exchange Rate: ${transaction.rate} USD `}</p>
 
                 <Grid className='summary-boxes' container spacing={2}>
                     <Grid item xs={3} md={3} >
@@ -83,7 +83,7 @@ function Summary(props) {
                     </Grid>
                     <Grid item xs={3} md={3}>
                         <h4 className='small-box-header'>Amount</h4>
-                        <p className='small-box-text'>{`${transaction.convertedAmount}`}</p>
+                        <p className='small-box-text'>{`${transaction.convertedAmount} NGN`}</p>
 
                     </Grid>
 

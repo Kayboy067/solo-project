@@ -113,10 +113,9 @@ function PaymentInfoForm() {
         />
         </label>
         </span> 
-        <button type='submit' >
-            Update
-
-        </button>
+        <span> <button type='submit' >Update</button></span>
+        
+        <span> <button type='submit' >Delete</button></span>
         </form>
         
         </>

@@ -29,7 +29,8 @@ function ReceiverForm() {
     console.log('firstName', firstName);
     return(
         <form onSubmit={createReceiverInfo}>
-        <div>
+        <span>
+        
         <label htmlFor='firstName'>
             First Name:
         <input
@@ -41,21 +42,9 @@ function ReceiverForm() {
             onChange={(event) => setFirstName(event.target.value)}
         />
         </label>
-        </div>
-        {/* <div>
-        <label htmlFor='middleName'>
-            Middle Name (Optional):
-        <input
-            type="text"
-            name="middleName"
-            value={middleName}
-            required
-            placeholder="Middle Name"
-            onChange={(event) => setMiddleName(event.target.value)}
-        />
-        </label>
-        </div>  */}
-        <div>
+        </span>
+        <span>
+        
         <label htmlFor='lastName'>
             Last Name:
         <input
@@ -67,8 +56,8 @@ function ReceiverForm() {
             onChange={(event) => setLastName(event.target.value)}
         />
         </label>
-        </div> 
-        <div>
+        </span>
+        <span>
         <label htmlFor='address'>
             Address:
         <input
@@ -80,8 +69,8 @@ function ReceiverForm() {
             onChange={(event) => setAddress(event.target.value)}
         />
         </label>
-        </div> 
-        <div>
+        </span>
+        <span>
         <label htmlFor='phoneNumber'>
             Phone Number:
         <input
@@ -93,8 +82,14 @@ function ReceiverForm() {
             onChange={(event) => setPhoneNumber(event.target.value)}
         />
         </label>
-        <input type="submit" name="create" value="create" />
-        </div> 
+        </span>
+        <span>
+            <input type="submit" name="create" value="create" />
+        </span>
+        <span>
+        <input type="submit" name="delete" value="delete" />
+        </span>
+
         </form>
 
     )

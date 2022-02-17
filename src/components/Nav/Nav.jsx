@@ -28,9 +28,17 @@ function Nav() {
               Home
             </Link>
 
+            <Link className="navLink" to="/about">
+              About
+            </Link>
+
             <Link className="navLink" to="/estimate">
-          Send Money
-        </Link>
+              Send Money
+            </Link>
+
+            <Link className="navLink" to="/payment">
+              Payment Update
+            </Link>
 
             <Link className="navLink" to="/info">
               Transactions
@@ -40,9 +48,6 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
     </div>
   );
