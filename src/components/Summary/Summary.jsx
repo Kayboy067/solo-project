@@ -14,7 +14,7 @@ function Summary(props) {
     const dispatch = useDispatch()
     let history = useHistory();
 
-    const receiver = useSelector(store=>store.receiverReducer[0])
+    const receiver = useSelector(store=>store.receiverReducer[store.receiverReducer.length-1])
     const transaction = useSelector(store => store.transactionReducer)
 
     const transactionConfirmation = () => {
@@ -25,10 +25,10 @@ function Summary(props) {
             address: receiver.address,
             phone: receiver.phone,
             amount: transaction.amount,
-            receivingAmount: transaction.convertedValue,
+            receivingAmount: transaction.convertedAmount,
         }
 
-        axios.post('/api/transaction', data).then(response => {
+        axios.post('api/user/transaction', data).then(response => {
             dispatch({
                 type: "SET_CONFIRMATION",
                 payload: response.data[0].confirmation
@@ -74,16 +74,16 @@ function Summary(props) {
                 <h5 className='rates-fees'>Rate & Fees <span className='edit-btn'>
                     <button onClick={() => history.push('/')}>Edit</button></span> </h5>
                 <p className='conversion-rate'>{`${transaction.amount} USD = 
-        ${transaction.convertedValue} ${transaction.currencyName} Exchange Rate: ${transaction.conversionRate} `}</p>
+        ${transaction.convertedAmount} Exchange Rate: ${transaction.rate} `}</p>
 
                 <Grid className='summary-boxes' container spacing={2}>
                     <Grid item xs={3} md={3} >
                         <h4 className='small-box-header'>Receiver Country</h4>
-                        <p className='small-box-text'>{transaction.countryFullName}</p>
+                        <p className='small-box-text'>{transaction.country}</p>
                     </Grid>
                     <Grid item xs={3} md={3}>
                         <h4 className='small-box-header'>Amount</h4>
-                        <p className='small-box-text'>{`${transaction.convertedValue} ${transaction.currencyName}`}</p>
+                        <p className='small-box-text'>{`${transaction.convertedAmount}`}</p>
 
                     </Grid>
 
@@ -91,7 +91,7 @@ function Summary(props) {
                 <Grid className='summary-small-boxes' container spacing={2}>
                     <Grid item xs={3} md={3} >
                         <h4 className='small-box-header'>Fee</h4>
-                        <p className='small-box-text'>$0.00</p>
+                        <p className='small-box-text'>{transaction.sendFee}</p>
                     </Grid>
 
                 </Grid>
@@ -99,16 +99,16 @@ function Summary(props) {
                 <h5 className='rates-fees'>Receiver <span className='edit-btn'>
                     <button onClick={() => history.push('/receiver')}>Edit</button></span> </h5>
                 <p className='conversion-rate'>Legal Name</p>
-                <p className='conversion-rate'>{`${receiver.firstName} ${receiver.lastName}`}</p>
+                <p className='conversion-rate'>{`${receiver.first_name} ${receiver.last_name}`}</p>
 
                 <h5 className='rates-fees'>COST SUMMARY <span className='edit-btn'>
                     <button onClick={() => history.push('/user')}>Edit</button></span> </h5>
                 <Grid className='summary-small-boxes' container spacing={2}>
                     <Grid item xs={6} md={3} >
                         <h4 className='small-box-header'>Total Cost:</h4>
-                        <p className='small-box-text'>{`${transaction.amount} USD`}</p><br />
+                        <p className='small-box-text'>{`${transaction.amount+transaction.sendFee} USD`}</p><br />
                         <h4 className='small-box-header'>Total Receive Amount:</h4>
-                        <p className='small-box-text'>{`${transaction.convertedValue} ${transaction.currencyName}`}</p>
+                        <p className='small-box-text'>{`${transaction.convertedAmount} NGN`}</p>
                     </Grid>
 
                     <Grid item xs={6} md={4} >
