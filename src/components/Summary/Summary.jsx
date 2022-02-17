@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import swal from 'sweetalert';
 import axios from 'axios';
+import './summary.css'
 
 
 function Summary(props) {
@@ -19,20 +20,20 @@ function Summary(props) {
 
     const transactionConfirmation = () => {
 
-        const data = {
-            firstName: receiver.firstName,
-            lastName: receiver.lastName,
-            address: receiver.address,
-            phone: receiver.phone,
-            amount: transaction.amount,
-            receivingAmount: transaction.convertedAmount,
-        }
+        // const data = {
+        //     firstName: receiver.firstName,
+        //     lastName: receiver.lastName,
+        //     address: receiver.address,
+        //     phone: receiver.phone,
+        //     amount: transaction.amount,
+        //     receivingAmount: transaction.convertedAmount,
+        // }
 
-        axios.post('api/user/transaction', data).then(response => {
-            dispatch({
-                type: "SET_CONFIRMATION",
-                payload: response.data[0].confirmation
-            })
+        axios.post('api/user/transaction', transaction).then(response => {
+            // dispatch({
+            //     type: "SET_CONFIRMATION",
+            //     payload: response.data[0].confirmation
+            // })
             history.push("/success")
         }
         ).catch(err => console.log(err))
