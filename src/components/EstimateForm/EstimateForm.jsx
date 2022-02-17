@@ -60,7 +60,7 @@ console.log('this is output', output);
             amount: Number(input),
             convertedAmount: Number((input * rate).toFixed(2)),
             sendFee: sendFee,
-            rate: rate,
+            rate: Number(rate.toFixed(2)),
             country: country,
             date: date
         }
