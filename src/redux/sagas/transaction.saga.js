@@ -6,7 +6,8 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 function* createTransaction(action) {
     try{
-        yield axios.post('api/user/transaction', action.payload)
+        const response = yield axios.post('api/user/transaction', action.payload)
+        yield put({ type: 'SET_ACTIVE_TRANSACTION', payload: response.data})
     } catch (err) {
         console.log('Error posting transactions', err);
     }
