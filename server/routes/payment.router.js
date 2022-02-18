@@ -16,7 +16,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 //POST a new payment
 router.post('/payment', (req, res, next) =>{
-
+console.log('payment detail ******* req.body', req.body);
     const sqlText = `
         INSERT INTO "payment"
         ("user_id", "card_name", "card_number", "card_type", "address", "expiration", "cvv")
@@ -25,11 +25,11 @@ router.post('/payment', (req, res, next) =>{
     const sqlParam = [
         req.user.id,
         req.body.cardName,
-        encryptLib.encryptPassword(req.body.cardNumber),
+        req.body.cardNumber,
         req.body.cardType,
         req.body.billingAddress,
         req.body.expiration,
-        encryptLib.encryptPassword(req.body.cvv)
+        req.body.cvv
     ]
 
     pool.query(sqlText, sqlParam)

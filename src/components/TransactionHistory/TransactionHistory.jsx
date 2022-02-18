@@ -1,43 +1,96 @@
-import React from 'react';
-import { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import './TransactionHistory.css';
+
+function TransactionHistory(props) {
+
+    const transaction = useSelector(store => store?.transactionListReducer);
+    //const receiver = useSelector(store => store.paymentOptionReducer);
+    const dispatch = useDispatch();
+    const [change,setChange] = useState(false);
+
+    // call that function in useEffect with empty 
+
+    useEffect(() => {
+
+        dispatch({ type: 'GET_TRANSACTIONS' });
+        
+        
+    }, [change])
+
+    const deleteBtn = (id) => {
+        console.log('here is id',id);
+
+        dispatch({ type: 'GET_TRANSACTIONS'});
+        dispatch({ type: 'DELETE_TRANSACTION', payload:{id:id}  });
+
+        setChange(prev=>!prev);
+
+    }
+
+    return (
+
+        <div>
+
+            <Container className='white-container-transfer' maxWidth="xl">
+
+                <p className='transfer-status'>Transfers</p>
+
+                {transaction.length ? transaction.map((v, index) => {
+
+                    return (
+                        <Container key={index} style={{marginBottom:20}}>
+
+                            <Grid justifyContent="around" className='transfer-status-grid' container spacing={2}>
+                                <Grid justifyContent="around" className='transfer-status-grid' container spacing={2}>
+
+                                    <Grid item xs={12} sm={6} >
+                                        <h4 className='transfer-header'>Transaction Date:</h4>
+                                        <p className='transfer-text'>{v.date.toString().slice(0,10)}</p>
+                                    </Grid> 
+
+                                    <Grid item xs={12} sm={6} >
+                                        <h4 className='transfer-header'>Receiver Name:</h4>
+                                        <p className='transfer-text'>{v.first_name + " " + v.last_name}</p>
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} >
+                                        <h4 className='transfer-header'>Receive Method:</h4>
+                                        <p className='transfer-text'>Cash Pick</p>
+                                    </Grid>
+
+                                    <Grid item xs={12} sm={6} >
+                                        <h4 className='transfer-header'>Sent Amount:</h4>
+                                        <p className='transfer-text'>{v.amount} USD</p>
+                                    </Grid>
+   
+                                </Grid>
+                                
+                                <button className='delete-btn' onClick={()=> deleteBtn(v.id)} >Delete</button>
+                                
+                            </Grid>
+                        </Container>
+                    )
+                }) : ""}
 
 
+            </Container>
+
+        </div>
 
 
-
-function TransactionHistory() {
-
-  const receivers = useSelector(store=>store.receiverReducer[0])
-  const dispatch = useDispatch();
-  const transaction = useSelector(store => store.transactionReducer)
-  const paymentOption = useSelector(store => store.paymentOptionReducer)
-
-  // useEffect(() => {
-  //   dispatch({type: 'FETCH_RECEIVER'})
-  // }, [])
-
-console.log('this are the receivers from the store', receivers);
-console.log('transaction details from redux', transaction);
-console.log('this is the payment option from redux', paymentOption);
-
-  return (
-    <div className="container">
-      <p>Info Page</p>
-      <p> I want to know the details of my receiver</p>
-      {/* <p>{receivers.first_name}</p> */}
-      <button> check transaction</button>
-      <h3>{transaction.amount}</h3>
-      <h3>{transaction.convertedAmount}</h3>
-      <h3>{transaction.rate}</h3>
-      <h3>{transaction.country}</h3>
-      <h3>{receivers.id}</h3>
-    </div>
-  );
+    );
 }
 
 export default TransactionHistory;

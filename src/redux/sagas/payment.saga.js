@@ -5,7 +5,10 @@ import { put, takeEvery } from 'redux-saga/effects';
 
 function* creatPaymentInfo(action) {
     try{
-        yield axios.post('api/user/payment', action.payload.id)
+       const response = yield axios.post('api/user/payment', action.payload)
+        yield put({ type: 'SET_CARD_DETAIL', payload: response.data})
+        yield put({type: 'FETCH_PAYMENT'});
+        
     } catch (error) {
         console.log('Error posting payment info', error);
     }
