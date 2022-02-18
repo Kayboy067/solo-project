@@ -16,11 +16,6 @@ function PaymentInfoPage() {
 
         <PaymentInfoForm />
         <PaymentDetails />
-
-
-        <center>
-        <Link to="/info"><button className='btn'>continue</button></Link>
-        </center>
         </>
     )
 }

@@ -65,7 +65,7 @@ function PaymentInfoForm() {
         <label htmlFor='cardNumber'>
             Card Number:
         <input
-            type="password"
+            type="text"
             name="cardNumber"
             value={paymentInfo.cardNumber}
             required

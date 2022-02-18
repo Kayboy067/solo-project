@@ -14,6 +14,7 @@ function* createTransaction(action) {
     
 } // end createTransaction
 
+
 function* fetchTransaction() {
     try{
         const transaction = yield axios.get('api/user/transaction')

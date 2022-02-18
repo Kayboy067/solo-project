@@ -22,8 +22,8 @@ router.post('/transaction', (req, res, next) =>{
     console.log('this is req.user', req.user.id);
     const sqlText = `
         INSERT INTO "transaction"
-            ("receiver_id", "user_id", "converted_amount", "country", "amount", "date", "rate")
-            VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *` 
+            ("receiver_id", "user_id", "converted_amount", "country", "amount", "date", "rate", receiving_method)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *` 
 
     const sqlParam = [
         req.body.receiver_id,
@@ -32,7 +32,8 @@ router.post('/transaction', (req, res, next) =>{
         req.body.country,
         req.body.amount,
         req.body.date,
-        req.body.rate
+        req.body.rate,
+        req.body.receivingMethod
 
     ]
     pool.query(sqlText, sqlParam)
