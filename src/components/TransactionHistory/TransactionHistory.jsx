@@ -11,11 +11,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import './TransactionHistory.css';
+import './TransactionHistory.css'
 
 function TransactionHistory(props) {
 
-    const transaction = useSelector(store => store?.transactionListReducer);
+    const transaction = useSelector(store => store.transactionListReducer);
     //const receiver = useSelector(store => store.paymentOptionReducer);
     const dispatch = useDispatch();
     const [change,setChange] = useState(false);
@@ -35,6 +35,7 @@ function TransactionHistory(props) {
         dispatch({ type: 'GET_TRANSACTIONS'});
         dispatch({ type: 'DELETE_TRANSACTION', payload:{id:id}  });
 
+
         setChange(prev=>!prev);
 
     }
@@ -44,9 +45,9 @@ function TransactionHistory(props) {
         <div>
 
             <Container className='white-container-transfer' maxWidth="xl">
-
-                <p className='transfer-status'>Transfers</p>
-
+                <center>
+                <p className='transfer-list'>Transfer List</p>
+                </center>
                 {transaction.length ? transaction.map((v, index) => {
 
                     return (
