@@ -51,11 +51,11 @@ router.post('/transaction', (req, res, next) =>{
 router.get('/transaction', (req, res) =>{
     const sqlText = `
         SELECT * FROM "transaction"
-        JOIN "receiver"
-        ON receiver.id = transaction.receiver_id
+        WHERE "user_id" = '${req.user.id}'
     `
     pool.query(sqlText)
         .then(result =>{
+            console.log('the result is', result.rows);
             res.send(result.rows)
         })
         .catch(err =>{
@@ -64,6 +64,26 @@ router.get('/transaction', (req, res) =>{
         })
 
 })
+
+/**
+ * DELETE route
+ */
+// Delete a transaction by Id
+router.delete("/transaction/:id",rejectUnauthenticated, (req, res) => {
+    console.log('req.params.id', req.params.id);
+    let query = `delete
+          from "transaction"
+          where "id" = ${req.params.id}`;
+    pool.query(query)
+      .then((results) => {
+          console.log('this is delete result', results);
+        res.send(results.rows);
+      })
+      .catch((error) => {
+        console.log('DELETE /:id', error);
+        res.sendStatus(500);
+      })
+  });
 
 module.exports = router
 

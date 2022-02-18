@@ -6,7 +6,8 @@ import receiverSaga from './receiver.saga';
 import estimateSaga from './estimate.saga';
 import paymentSaga from './payment.saga';
 import transactionSaga from './transaction.saga';
-import getTransactionList from './transactionList.Saga'
+import getTransactionList from './transactionList.Saga';
+import deleteSaga from './delete.saga'
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -24,6 +25,7 @@ export default function* rootSaga() {
     estimateSaga(),
     paymentSaga(),
     transactionSaga(),
-    getTransactionList()
+    getTransactionList(),
+    deleteSaga()
   ]);
 }
