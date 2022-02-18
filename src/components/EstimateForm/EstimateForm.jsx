@@ -136,7 +136,7 @@ value={to} placeholder="To" />
 <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p>
 </div>
 <h4>Sending Fee: ${sendingFee()}</h4>
-<p className='money-note'>Money Available by: {date} </p>
+<p>Money Available by: {date} </p>
 
 
 </div>

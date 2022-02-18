@@ -48,7 +48,7 @@ function TransactionHistory(props) {
                 <center>
                 <p className='transfer-list'>Transfer List</p>
                 </center>
-                {transaction.length ? transaction.map((v, index) => {
+                { transaction.map((transaction, index) => {
 
                     return (
                         <Container key={index} style={{marginBottom:20}}>
@@ -58,12 +58,12 @@ function TransactionHistory(props) {
 
                                     <Grid item xs={12} sm={6} >
                                         <h4 className='transfer-header'>Transaction Date:</h4>
-                                        <p className='transfer-text'>{v.date.toString().slice(0,10)}</p>
+                                        <p className='transfer-text'>{transaction.date}</p>
                                     </Grid> 
 
                                     <Grid item xs={12} sm={6} >
                                         <h4 className='transfer-header'>Receiver Name:</h4>
-                                        <p className='transfer-text'>{v.first_name + " " + v.last_name}</p>
+                                        <p className='transfer-text'>{transaction.first_name + " " + transaction.last_name}</p>
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} >
@@ -73,17 +73,17 @@ function TransactionHistory(props) {
 
                                     <Grid item xs={12} sm={6} >
                                         <h4 className='transfer-header'>Sent Amount:</h4>
-                                        <p className='transfer-text'>{v.amount} USD</p>
+                                        <p className='transfer-text'>{transaction.amount} USD</p>
                                     </Grid>
    
                                 </Grid>
                                 
-                                <button className='delete-btn' onClick={()=> deleteBtn(v.id)} >Delete</button>
+                                <button className='btn' onClick={()=> deleteBtn(transaction.id)} >Delete</button>
                                 
                             </Grid>
                         </Container>
                     )
-                }) : ""}
+                }) }
 
 
             </Container>
