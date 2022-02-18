@@ -34,7 +34,7 @@ function DisclaimerPage(props) {
                 <p className='fraud-text'>Never give your transaction reference number to anyone other than the person you intend to receive the money. Fraudulent transactions may result in the loss of your money with no recourse.</p>
 
                 <div className='fraud-btn-container'>
-                    <Button className='fraud-btn' onClick={() => reviewAndSend()} variant="contained">Review & Send</Button>
+                    <Button className='btn' onClick={() => reviewAndSend()} variant="contained">Review & Send</Button>
                 </div>
 
             </Container>

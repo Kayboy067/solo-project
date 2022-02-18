@@ -26,6 +26,7 @@ import PaymentInfoPage from '../PaymentInfoPage/PaymentInfoPage';
 import DisclaimerPage from '../DisclaimerPage/DisclaimerPage';
 import SuccessPage from '../SuccessPage/SuccessPage'
 import Summary from '../Summary/Summary'
+import ReceiverDetail from '../ReceiverDetail/ReceiverDetail';
 
 import './App.css';
 
@@ -91,6 +92,12 @@ function App() {
             exact
             path="/receiver">
               <Receiver />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+          exact
+          path="/receivers">
+            <ReceiverDetail />
           </ProtectedRoute>
           
           <ProtectedRoute
