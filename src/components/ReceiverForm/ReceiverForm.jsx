@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from 'react-router';
 
 function ReceiverForm() {
     const dispatch = useDispatch();
+    const history = useHistory();
     // this is the logged in user
     const user=useSelector(store => store.user)
 
@@ -24,6 +26,8 @@ function ReceiverForm() {
             userId: user.id
             }
         })
+        history.push('/disclaimer')
+        
     }
 
     console.log('firstName', firstName);
@@ -83,12 +87,7 @@ function ReceiverForm() {
         />
         </label>
         </span>
-        <span>
-            <input type="submit" name="create" value="create" />
-        </span>
-        <span>
-        <input type="submit" name="delete" value="delete" />
-        </span>
+        <span><button>Create</button></span>
 
         </form>
 

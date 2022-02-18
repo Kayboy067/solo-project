@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -98,7 +99,7 @@ function Summary(props) {
                 </Grid>
 
                 <h5 className='rates-fees'>Receiver <span className='edit-btn'>
-                    <button onClick={() => history.push('/receiver')}>Edit</button></span> </h5>
+                    <button onClick={() => history.push('/receivers')}>Edit</button></span> </h5>
                 <p className='conversion-rate'>Legal Name</p>
                 <p className='conversion-rate'>{`${receiver.first_name} ${receiver.last_name}`}</p>
 
