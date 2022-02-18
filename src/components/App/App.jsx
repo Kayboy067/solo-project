@@ -24,7 +24,7 @@ import PreviewPage from '../PreviewPage/PreviewPage';
 import Receiver from '../ReceiverPage/ReceiverPage';
 import PaymentInfoPage from '../PaymentInfoPage/PaymentInfoPage';
 import DisclaimerPage from '../DisclaimerPage/DisclaimerPage';
-import SuccessPage from '../SuccessPage/SuccessPage'
+import Confirmation from '../Confirmation/Confirmation'
 import Summary from '../Summary/Summary'
 import ReceiverDetail from '../ReceiverDetail/ReceiverDetail';
 
@@ -114,8 +114,8 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/success">
-              <SuccessPage />
+            path="/confirmation">
+              <Confirmation />
           </ProtectedRoute>
 
           <ProtectedRoute

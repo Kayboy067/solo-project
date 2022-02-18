@@ -16,7 +16,7 @@ import './TransactionHistory.css'
 function TransactionHistory(props) {
 
     const transaction = useSelector(store => store.transactionListReducer);
-    //const receiver = useSelector(store => store.paymentOptionReducer);
+    const receiver = useSelector(store => store.paymentOptionReducer);
     const dispatch = useDispatch();
     const [change,setChange] = useState(false);
 
@@ -46,7 +46,7 @@ function TransactionHistory(props) {
 
             <Container className='white-container-transfer' maxWidth="xl">
                 <center>
-                <p className='transfer-list'>Transfer List</p>
+                <h3 className='transfer-list'>Transfer List</h3>
                 </center>
                 { transaction.map((transaction, index) => {
 
@@ -58,12 +58,12 @@ function TransactionHistory(props) {
 
                                     <Grid item xs={12} sm={6} >
                                         <h4 className='transfer-header'>Transaction Date:</h4>
-                                        <p className='transfer-text'>{transaction.date}</p>
+                                        <p className='transfer-text'>{transaction.date.toString().slice(0,10)}</p>
                                     </Grid> 
 
                                     <Grid item xs={12} sm={6} >
                                         <h4 className='transfer-header'>Receiver Name:</h4>
-                                        <p className='transfer-text'>{transaction.first_name + " " + transaction.last_name}</p>
+                                        <p className='transfer-text'>{receiver.first_name + " " + receiver.last_name}</p>
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} >
