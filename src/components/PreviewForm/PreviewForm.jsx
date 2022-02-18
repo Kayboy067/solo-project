@@ -68,7 +68,7 @@ console.log('this is the receiving', receiving);
             <p>Money Available by: {transaction.date} </p>
           
         <center>
-            <Link to="/disclaimer"><button className='btn' onClick={submitPayment} >continue</button></Link>
+            <Link to="/receiver"><button className='btn' onClick={submitPayment} >continue</button></Link>
         </center>
         </div>
     )
