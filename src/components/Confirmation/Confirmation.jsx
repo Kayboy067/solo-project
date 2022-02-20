@@ -29,10 +29,11 @@ function Confirmation() {
 
             <Container className='white-container' maxWidth="xl">
                 <h1 className='success'>Congrats!</h1>
+                <img src="https://cliply.co/wp-content/uploads/2021/03/372103860_CHECK_MARK_400px.gif" alt="success" width="200px" height="200px"/>
                 <h1 className='complete'>Your Money Transfer Is <br /> Complete </h1>
-                <h1 className='reference'>Reference Number: 0234599945443 </h1>
+                <h1>Reference Number: 0234599945443 </h1>
 
-                <Button className='return-btn' onClick={() => returnHome()} 
+                <Button className='home-btn' onClick={() => returnHome()} 
                 variant="contained">Return Home</Button>
 
             </Container>

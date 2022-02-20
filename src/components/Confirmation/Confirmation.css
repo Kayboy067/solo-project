@@ -1,6 +1,6 @@
 .white-container{
     background-color: white;
-    width: 80% !important;
+    width: 80%;
     margin-top: 30px;
     height: 70vh;
     padding: 5px;
@@ -9,23 +9,19 @@
 
 .success{
     font-size: 80px;
-    margin-bottom: 0px !important;
+    margin:auto;
 }
 
 .complete{
     font-size: 45px;
     font-weight: 500;
-    margin-top: 0px !important;
+    margin: auto;
 }
 
-.reference{
-    font-weight: 500;
-    color: #086AF8;
-}
 
-.return-btn{
-    font-weight: 200 !important;
-    background-color: blue !important;
-    margin-top: 40px !important;
-    font-size: 20px !important;
+.home-btn{
+    font-weight: 200;
+    background-color: blue;
+    margin: auto;
+    font-size: 20px;
 }
