@@ -16,9 +16,11 @@ import './TransactionHistory.css'
 function TransactionHistory(props) {
 
     const transaction = useSelector(store => store.transactionListReducer);
-    const receiver = useSelector(store => store.paymentOptionReducer);
+    const receiver = useSelector(store => store.receiverReducer[store.receiverReducer.length - 1]);
     const dispatch = useDispatch();
     const [change,setChange] = useState(false);
+
+    console.log('this is the receiver from the store', receiver);
 
     // call that function in useEffect with empty 
 
