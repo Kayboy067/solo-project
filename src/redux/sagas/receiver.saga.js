@@ -28,11 +28,24 @@ function* fetchReceiver(){
 
 } // end
 
+function* saveChanges(action){
+    try{
+        yield axios.put('api/user/receiver',action.payload )
+
+        yield put ({
+            type: 'FETCH_RECEIVER'
+        })
+
+    } catch (error){
+        console.log('Error making changes', error);
+    }
+}
 
 
 function* receiverSaga(){
  yield takeEvery('CREATE_RECEIVER_INFO',  createReceiverInfo)
- yield takeEvery('FETCH_RECEIVER', fetchReceiver)
+ yield takeEvery('FETCH_RECEIVER', fetchReceiver);
+ yield takeEvery('SAVE_RECEIVER_CHANGES', saveChanges)
 }
 
 export default receiverSaga

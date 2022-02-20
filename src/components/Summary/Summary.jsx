@@ -1,7 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from "react-router-dom";
 
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
@@ -11,12 +10,12 @@ import axios from 'axios';
 import './summary.css'
 
 
-function Summary(props) {
+function Summary() {
 
     const dispatch = useDispatch()
     let history = useHistory();
 
-    const receiver = useSelector(store=>store.receiverReducer[store.receiverReducer.length-1])
+    const receiver = useSelector(store=>store.receiverReducer)
     const transaction = useSelector(store => store.transactionReducer)
 
     const transactionConfirmation = () => {
@@ -86,7 +85,7 @@ function Summary(props) {
                 </Grid>
 
                 <h5 className='rates-fees'>Receiver <span className='edit-btn'>
-                    <button onClick={() => history.push('/receivers')}>Edit</button></span> </h5>
+                    <button onClick={() => history.push('/receiver-edit')}>Edit</button></span> </h5>
                 <p className='conversion-rate'>Legal Name</p>
                 <p>{`${receiver.first_name} ${receiver.last_name}`}</p>
 

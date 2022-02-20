@@ -27,6 +27,7 @@ import DisclaimerPage from '../DisclaimerPage/DisclaimerPage';
 import Confirmation from '../Confirmation/Confirmation'
 import Summary from '../Summary/Summary'
 import ReceiverDetail from '../ReceiverDetail/ReceiverDetail';
+import ReceiverEdit from '../ReceiverEditPage/ReceiverEditPage'
 
 import './App.css';
 
@@ -96,8 +97,8 @@ function App() {
 
           <ProtectedRoute
           exact
-          path="/receivers">
-            <ReceiverDetail />
+          path="/receiver-edit">
+            <ReceiverEdit />
           </ProtectedRoute>
           
           <ProtectedRoute
