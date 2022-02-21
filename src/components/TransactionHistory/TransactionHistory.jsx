@@ -9,9 +9,9 @@ import './TransactionHistory.css'
 function TransactionHistory(props) {
 
     const transaction = useSelector(store => store.transactionListReducer);
-    const receiver = useSelector(store => store.receiverReducer[store.receiverReducer.length - 1]);
+    const receiver = useSelector(store => store.receiverReducer);
     const dispatch = useDispatch();
-    const [change,setChange] = useState(false);
+    //const [change,setChange] = useState(false);
 
     console.log('this is the receiver from the store', receiver);
 
@@ -22,7 +22,7 @@ function TransactionHistory(props) {
         dispatch({ type: 'GET_TRANSACTIONS' });
         
         
-    }, [change])
+    }, [])
 
     const deleteBtn = (id) => {
         console.log('here is id',id);
@@ -31,7 +31,7 @@ function TransactionHistory(props) {
         dispatch({ type: 'DELETE_TRANSACTION', payload:{id:id}  });
 
 
-        setChange(prev=>!prev);
+        //setChange(prev=>!prev);
 
     }
 
