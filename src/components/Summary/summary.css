@@ -1,88 +1,51 @@
-.title-text{
-    font-family: 'Rancho', cursive;
-    color: white;
-    font-size: 60px;
-    text-align: center;
-    margin-top: 5px;
+.container{
+    margin:3em auto;
+    width:80%;
+    display:grid;
+    /* grid-template-columns:repeat(3 1fr); */
+    grid-template-rows:75px 45px 450px 75px;
+    grid-gap:3px;
+  }
+
+.transfer{
+    text-align: -webkit-center;
+   
+  
 }
-.nav-grid{
-    color: white;
-    font-size: 24px;
-    font-weight: 500;
+
+.rate-fee{
     justify-content: center;
+    align-items: center;
+    display: flex;
+  
 }
-.nav-grid  .css-kgdgla-MuiGrid-root{
-    cursor: pointer;
-}
-.white-container-summary{
-    background-color: white;
-    width: 80% !important;
-    margin-top: 30px;
-    height: auto;
-    padding: 5px;
-    text-align: start;
-    padding-bottom: 40px;
-}
-.success{
-    font-size: 80px;
-    margin-bottom: 0px !important;
-}
-.complete{
-    font-size: 45px;
-    font-weight: 500;
-    margin-top: 0px !important;
 
+.values{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+   
+}
 
+.name{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    
 }
-.reference{
-    font-weight: 500;
-    color: #086AF8;
-}
+
+.country-name{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+   
+} 
+
 .confirm-btn{
-    font-weight: 500 !important;
-    background-color: blue !important;
-    margin-top: 100px !important;
-    font-size: 10px !important;
-    padding: 15px 40px !important;
-    float: right;
-    width: 50px;
-}
-.summary-text{
-    margin-top: 10px;
-    font-size: 28px;
-    margin-bottom: 5px !important;
-}
-.almost-done{
-    font-size: 18px;
-    margin: 0px !important;
-}
-.rates-fees{
-    font-size: 19px;
-    margin-top: 15px !important;
-    border-bottom: 2px solid gainsboro;
-    margin-bottom: 0px !important;
-}
-.edit-btn button{
-    background: none;
-    border: none;
-    font-size: 18px;
-    font-weight: 600;
-    float: right;
-    cursor: pointer;
-
-}
-.conversion-rate{
-    margin: 0px !important;
-    font-weight: 600;
-}
-.summary-small-boxes{
-    margin-top: 0px !important;
-}
-.small-box-header{
-    margin: 0px !important;
-}
-.small-box-text{
-    margin: 0px !important;
-    font-size: 12px;
-    font-weight: 600;
+    justify-content: center;
+   
+  
+   
 }

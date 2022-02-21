@@ -2,21 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import './TransactionHistory.css'
 
 function TransactionHistory(props) {
 
     const transaction = useSelector(store => store.transactionListReducer);
-    const receiver = useSelector(store => store.receiverReducer[store.receiverReducer.length - 1]);
+    const receiver = useSelector(store => store.receiverReducer);
     const dispatch = useDispatch();
     const [change,setChange] = useState(false);
 
@@ -46,36 +38,36 @@ function TransactionHistory(props) {
 
         <div>
 
-            <Container className='white-container-transfer' maxWidth="xl">
+            <Container maxWidth="xl">
                 <center>
-                <h3 className='transfer-list'>Transfer List</h3>
+                <h3>Transfer List</h3>
                 </center>
                 { transaction.map((transaction, index) => {
 
                     return (
                         <Container key={index} style={{marginBottom:20}}>
 
-                            <Grid justifyContent="around" className='transfer-status-grid' container spacing={2}>
-                                <Grid justifyContent="around" className='transfer-status-grid' container spacing={2}>
+                            <Grid justifyContent="around" container spacing={2}>
+                                <Grid justifyContent="around" container spacing={2}>
 
                                     <Grid item xs={12} sm={6} >
-                                        <h4 className='transfer-header'>Transaction Date:</h4>
-                                        <p className='transfer-text'>{transaction.date.toString().slice(0,10)}</p>
+                                        <h4>Transaction Date:</h4>
+                                        <p >{transaction.date.toString().slice(0,10)}</p>
                                     </Grid> 
 
                                     <Grid item xs={12} sm={6} >
-                                        <h4 className='transfer-header'>Receiver Name:</h4>
-                                        <p className='transfer-text'>{receiver.first_name + " " + receiver.last_name}</p>
+                                        <h4>Receiver Name:</h4>
+                                        <p>{receiver.first_name + " " + receiver.last_name}</p>
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} >
-                                        <h4 className='transfer-header'>Receive Method:</h4>
-                                        <p className='transfer-text'>Cash Pick</p>
+                                        <h4>Receive Method:</h4>
+                                        <p>Cash Pick</p>
                                     </Grid>
 
                                     <Grid item xs={12} sm={6} >
-                                        <h4 className='transfer-header'>Sent Amount:</h4>
-                                        <p className='transfer-text'>{transaction.amount} USD</p>
+                                        <h4>Sent Amount:</h4>
+                                        <p>{transaction.amount} USD</p>
                                     </Grid>
    
                                 </Grid>

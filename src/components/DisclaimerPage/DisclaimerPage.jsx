@@ -30,7 +30,7 @@ function DisclaimerPage(props) {
                     If you are aware of anyone or any entity that is using the Service inappropriately, please email us using our contact form. <br/>
                     Similarly, if you receive any emails, purporting to be from Worldwide Transfer, which you suspect may be "phishing" (fake) emails, please forward them to us using our contact form.<br/>
                 </p>
-                <h6 className='almost-done-header'>The security of personal information is of utmost importance to us. Anytime you enter sensitive information via our Site, we encrypt the transmission using secure socket layer (SSL) technology.</h6>
+                <h6 className='security'>The security of personal information is of utmost importance to us. Anytime you enter sensitive information via our Site, we encrypt the transmission using secure socket layer (SSL) technology.</h6>
                 <p className='fraud-text'>Never give your transaction reference number to anyone other than the person you intend to receive the money. Fraudulent transactions may result in the loss of your money with no recourse.</p>
 
                 <div className='fraud-btn-container'>

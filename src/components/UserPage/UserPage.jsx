@@ -9,7 +9,7 @@ function UserPage() {
   return (
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
+      {/* <p>Your ID is: {user.id}</p> */}
       <div className="grid">
       <div className="grid-col grid-col_8">
       <p>

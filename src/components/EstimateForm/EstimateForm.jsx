@@ -99,32 +99,25 @@ console.log('this is the output', output);
 
 return (
 
-<div className="Estimate" className="formPanel">
-<h1>Exchange Rate</h1>
-<div className="container">
-<div className="left">
-<h3>Amount</h3>
+<div className="formPanel">
+<h2 className="estimate">Exchange Rate</h2>
+<h3 className="amount">Amount</h3>
 <input type="text"
 placeholder="Enter the amount"
 onChange={(e) => setInput(e.target.value)} />
-</div>
-<div className="middle">
-<h3>From</h3>
+<h3 className="amount">From</h3>
 <Dropdown options={options}
 onChange={(e) => { setFrom(e.target.value) }}
 value={from} placeholder="From" />
-</div>
 <div className="switch">
 <HiSwitchHorizontal size="20px"
 onClick={() => { flip()}}/>
 </div>
-<div className="right">
-<h3>To</h3>
+
+<h3 className="amount">To</h3>
 <Dropdown options={options}
 onChange={(e) => {setTo(e.target.value)}}
 value={to} placeholder="To" />
-</div>
-</div>
 <div className="result">
 <label htmlFor="date">
     Date:
@@ -132,7 +125,7 @@ value={to} placeholder="To" />
 <input type="date" name="date" required value={date}
     onChange={(evt) => setDate(evt.target.value)} />
 <button onClick={()=>{convert()}}>Continue</button>
-<h2>Converted Amount:</h2>
+<h3 className="amount">Converted Amount:</h3>
 <p>{input+" "+from+" = "+output.toFixed(2) + " " + to}</p>
 </div>
 <h4>Sending Fee: ${sendingFee()}</h4>
