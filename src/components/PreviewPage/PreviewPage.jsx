@@ -9,8 +9,8 @@ function PreviewPage (){
     return (
         <div className="container">
         <h2>Welcome, {user.username}!</h2>
-        <p>Send money online for what matters most. </p>
-        <p>We make international money transfers easier than ever. Choose how and when you send, with great exchange rates and low fees.</p>
+        {/* <p>Send money online for what matters most. </p>
+        <p>We make international money transfers easier than ever. Choose how and when you send, with great exchange rates and low fees.</p> */}
 
         <PreviewForm />
 
